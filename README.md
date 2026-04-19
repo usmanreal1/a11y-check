@@ -1,10 +1,10 @@
 # a11y-check
 
-Static accessibility analyzer for React JSX/TSX files. Catches WCAG violations at the source level — no browser, no runtime, no DOM required.
+Static accessibility analyzer for React JSX/TSX files. Catches WCAG violations at the source level  no browser, no runtime, no DOM required.
 
 ## Why
 
-Tools like axe-core run in the browser against a rendered page. They miss components that aren't tested, routes that aren't visited, and code that isn't deployed yet. `a11y-check` runs on raw source files so developers get feedback at the earliest possible point — in CI, as a pre-commit hook, or locally before opening a PR.
+Tools like axe-core run in the browser against a rendered page. They miss components that aren't tested, routes that aren't visited, and code that isn't deployed yet. `a11y-check` runs on raw source files so developers get feedback at the earliest possible point  in CI, as a pre-commit hook, or locally before opening a PR.
 
 ## Install
 
@@ -31,7 +31,7 @@ a11y-check src/
 npx a11y-check src/
 ```
 
-Exit code is `1` when errors are found, `0` when clean — safe to use in CI scripts.
+Exit code is `1` when errors are found, `0` when clean  safe to use in CI scripts.
 
 ## Rules
 
@@ -118,7 +118,7 @@ return (
 )
 ```
 
-## CI — GitHub Actions
+## CI  GitHub Actions
 
 ```yaml
 # .github/workflows/a11y.yml
