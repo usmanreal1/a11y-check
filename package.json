@@ -25,6 +25,14 @@
     "jsx",
     "linter"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/usmanreal1/a11y-check.git"
+  },
+  "homepage": "https://github.com/usmanreal1/a11y-check#readme",
+  "bugs": {
+    "url": "https://github.com/usmanreal1/a11y-check/issues"
+  },
   "license": "MIT",
   "author": "Muhammad Usman",
   "devDependencies": {
