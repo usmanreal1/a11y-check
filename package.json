@@ -10,6 +10,7 @@
     "node": ">=18.0.0"
   },
   "scripts": {
+    "prepublishOnly": "npm run build",
     "build": "tsc -p tsconfig.build.json",
     "dev": "tsx src/cli.ts",
     "start": "node dist/cli.js",
