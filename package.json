@@ -1,6 +1,6 @@
 {
   "name": "a11y-check",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Accessibility analyzer for React JSX/TSX files that catches issues automated tools miss",
   "main": "dist/cli.js",
   "files": [
