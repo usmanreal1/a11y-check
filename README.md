@@ -35,26 +35,35 @@ Exit code is `1` when errors are found, `0` when clean safe to use in CI scripts
 
 ## Rules
 
-### Level A (errors)
+`a11y-check` covers the full set of WCAG 2.1 Level A rules that are statically detectable in JSX/TSX. Level AA rules are in active development.
 
-| Rule | What it catches |
-|---|---|
-| `alt-text` | `<img>` missing `alt` or with bare `alt` (no value) |
-| `button-label` | `<button>` with no text, no `aria-label`, or only an unlabelled icon |
-| `input-label` | `<input>` with no `aria-label`, `aria-labelledby`, or linked `id` |
-| `link-text` | `<a>` with empty text or non-descriptive text ("click here", "read more") |
-| `interactive-role` | Non-interactive elements (`div`, `span`, etc.) with `onClick` but no `role`, keyboard handler, or `tabIndex` |
-| `aria-valid-attr` | `aria-*` attributes not in the ARIA specification |
-| `lang-attribute` | `<html>` without a `lang` attribute or with an empty one |
-| `iframe-title` | `<iframe>` missing `title` or with an empty one |
-| `autoplay-media` | `<video>` or `<audio>` with `autoPlay` but no `muted` |
-| `link-href` | `<a>` with no `href`, empty `href`, or `href="#"` |
+### Level A — complete coverage
 
-### Level AA (warnings)
+| Rule | WCAG | What it catches |
+|---|---|---|
+| `alt-text` | 1.1.1 | `<img>` missing `alt` or with bare `alt` (no value) |
+| `video-captions` | 1.2.2 | `<video>` with no `<track kind="captions">` child |
+| `heading-order` | 1.3.1 | Heading levels that skip (e.g. `<h1>` followed by `<h3>`) |
+| `input-label` | 1.3.1 | `<input>` with no `aria-label`, `aria-labelledby`, or linked `id` |
+| `select-label` | 1.3.1 | `<select>` with no `aria-label`, `aria-labelledby`, or linked `id` |
+| `textarea-label` | 1.3.1 | `<textarea>` with no `aria-label`, `aria-labelledby`, or linked `id` |
+| `table-captions` | 1.3.1 | `<table>` with no `<caption>`, `aria-label`, or `aria-labelledby` |
+| `table-headers` | 1.3.1 | `<table>` with data cells (`<td>`) but no header cells (`<th>`) |
+| `autoplay-media` | 1.4.2 | `<video>` or `<audio>` with `autoPlay` but no `muted` |
+| `interactive-role` | 2.1.1 | Non-interactive elements (`div`, `span`, etc.) with `onClick` but no `role`, keyboard handler, or `tabIndex` |
+| `iframe-title` | 2.4.1 | `<iframe>` missing `title` or with an empty one |
+| `tab-index` | 2.4.3 | `tabIndex` values greater than `0`, which override natural tab order |
+| `link-text` | 2.4.4 | `<a>` with empty text or non-descriptive text ("click here", "read more") |
+| `link-href` | 2.4.4 | `<a>` with no `href`, empty `href`, or `href="#"` |
+| `lang-attribute` | 3.1.1 | `<html>` without a `lang` attribute or with an empty one |
+| `duplicate-id` | 4.1.1 | Multiple elements sharing the same static `id` value |
+| `button-label` | 4.1.2 | `<button>` with no text, no `aria-label`, or only an unlabelled icon |
+| `aria-valid-attr` | 4.1.2 | `aria-*` attributes not in the ARIA specification |
+| `aria-hidden-focus` | 4.1.2 | Focusable elements (`<button>`, `<input>`, `<a>`, etc.) with `aria-hidden="true"` |
 
-| Rule | What it catches |
-|---|---|
-| `heading-order` | Heading levels that skip (e.g. `<h1>` followed by `<h3>`) |
+### Level AA — coming soon
+
+Level AA rules (WCAG 1.4.3 colour contrast hints, 1.4.4 text resize, 2.4.6 headings and labels, 2.5.3 label-in-name, and others) are planned for the next release.
 
 ## Configuration
 

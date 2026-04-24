@@ -10,10 +10,11 @@
     "node": ">=18.0.0"
   },
   "scripts": {
+    "prepublishOnly": "npm run build",
     "build": "tsc -p tsconfig.build.json",
     "dev": "tsx src/cli.ts",
     "start": "node dist/cli.js",
-    "test": "node --import tsx --test tests/rules/altText.test.ts tests/rules/buttonLabel.test.ts tests/rules/inputLabel.test.ts tests/rules/linkText.test.ts tests/rules/interactiveRole.test.ts tests/rules/ariaValidAttr.test.ts tests/rules/langAttribute.test.ts tests/rules/headingOrder.test.ts tests/rules/linkHref.test.ts tests/rules/iframeTitle.test.ts tests/rules/autoplayMedia.test.ts tests/config.test.ts tests/filter.test.ts"
+    "test": "node --import tsx --test tests/rules/altText.test.ts tests/rules/buttonLabel.test.ts tests/rules/inputLabel.test.ts tests/rules/selectLabel.test.ts tests/rules/textareaLabel.test.ts tests/rules/linkText.test.ts tests/rules/interactiveRole.test.ts tests/rules/ariaValidAttr.test.ts tests/rules/ariaHiddenFocus.test.ts tests/rules/langAttribute.test.ts tests/rules/headingOrder.test.ts tests/rules/linkHref.test.ts tests/rules/iframeTitle.test.ts tests/rules/autoplayMedia.test.ts tests/rules/videoCaptions.test.ts tests/rules/tabIndex.test.ts tests/rules/duplicateId.test.ts tests/rules/tableCaptions.test.ts tests/rules/tableHeaders.test.ts tests/config.test.ts tests/filter.test.ts"
   },
   "bin": {
     "a11y-check": "./dist/cli.js"
