@@ -128,3 +128,97 @@ export function BadAudio() {
   // ❌ autoplays audio
   return <audio src="bg.mp3" autoPlay />
 }
+
+// ─── video-captions ──────────────────────────────────────────────────────────
+export function CaptionedVideo() {
+  return (
+    <video src="talk.mp4">
+      <track kind="captions" src="captions.vtt" srcLang="en" label="English" />
+    </video>
+  )
+}
+export function UncaptionedVideo() {
+  // ❌ no captions track
+  return <video src="talk.mp4"></video>
+}
+
+// ─── tab-index ───────────────────────────────────────────────────────────────
+export function GoodTabIndex() {
+  return <div role="button" tabIndex={0} onKeyDown={() => {}}>Click</div>
+}
+export function BadTabIndex() {
+  // ⚠️ positive tabIndex disrupts natural tab order
+  return <button tabIndex={3}>Submit</button>
+}
+
+// ─── aria-hidden-focus ───────────────────────────────────────────────────────
+export function GoodAriaHidden() {
+  return <span aria-hidden="true">✓</span>
+}
+export function BadAriaHiddenButton() {
+  // ❌ focusable button hidden from assistive tech but still reachable by keyboard
+  return <button aria-hidden="true">Close</button>
+}
+
+// ─── select-label ────────────────────────────────────────────────────────────
+export function GoodSelect() {
+  return <select aria-label="Country"><option>United States</option></select>
+}
+export function UnlabelledSelect() {
+  // ❌ no label
+  return <select><option>United States</option></select>
+}
+
+// ─── textarea-label ──────────────────────────────────────────────────────────
+export function GoodTextarea() {
+  return <textarea aria-label="Message" />
+}
+export function UnlabelledTextarea() {
+  // ❌ no label
+  return <textarea placeholder="Write something..." />
+}
+
+// ─── duplicate-id ────────────────────────────────────────────────────────────
+export function GoodIds() {
+  return <div><span id="first" /><span id="second" /></div>
+}
+export function DuplicateIds() {
+  // ❌ same id used twice
+  return <div><span id="title" /><span id="title" /></div>
+}
+
+// ─── table-captions ──────────────────────────────────────────────────────────
+export function GoodTableCaption() {
+  return (
+    <table>
+      <caption>Q1 Sales by Region</caption>
+      <tbody><tr><th scope="col">Region</th><th scope="col">Sales</th></tr></tbody>
+    </table>
+  )
+}
+export function TableNoCaption() {
+  // ⚠️ no caption or aria-label
+  return (
+    <table>
+      <tbody><tr><th scope="col">Region</th><td>West</td></tr></tbody>
+    </table>
+  )
+}
+
+// ─── table-headers ───────────────────────────────────────────────────────────
+export function GoodTableHeaders() {
+  return (
+    <table aria-label="Employees">
+      <thead><tr><th scope="col">Name</th><th scope="col">Role</th></tr></thead>
+      <tbody><tr><td>Alice</td><td>Engineer</td></tr></tbody>
+    </table>
+  )
+}
+export function TableNoHeaders() {
+  // ❌ data cells but no header cells
+  return (
+    <table aria-label="Employees">
+      <tbody><tr><td>Alice</td><td>Engineer</td></tr></tbody>
+    </table>
+  )
+}
